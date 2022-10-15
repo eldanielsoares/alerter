@@ -32,13 +32,18 @@ export const AlertContextProvider: React.FC<ProviderProps> = ({children}) => {
     title: '',
   });
 
-  const onShow = useCallback((optionsProps: AlertProps) => {
-    setTogle(true);
-    setOptions(optionsProps);
-    setTimeout(() => {
-      setTogle(false);
-    }, 3000);
-  }, []);
+  const onShow = useCallback(
+    (optionsProps: AlertProps) => {
+      if (!togle) {
+        setTogle(true);
+        setOptions(optionsProps);
+        setTimeout(() => {
+          setTogle(false);
+        }, 3000);
+      }
+    },
+    [togle],
+  );
 
   return (
     <>

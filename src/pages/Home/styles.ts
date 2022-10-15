@@ -1,5 +1,15 @@
 import styled from 'styled-components/native';
 
+interface ButtonProps {
+  bgColor: 'green' | 'orange' | 'red';
+}
+
+const colors = {
+  green: '#2F855A',
+  red: '#C53030',
+  orange: '#ED8936',
+};
+
 export const Container = styled.View`
   flex: 1;
   padding: 0 24px;
@@ -7,13 +17,14 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
-export const Button = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity<ButtonProps>`
   width: 100%;
   height: 60px;
   align-items: center;
   justify-content: center;
-  background-color: #2f855a;
+  background-color: ${props => colors[props.bgColor]};
   border-radius: 8px;
+  margin: 16px 0;
 `;
 
 export const Text = styled.Text`
