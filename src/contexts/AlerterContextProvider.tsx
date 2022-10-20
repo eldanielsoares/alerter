@@ -18,7 +18,7 @@ interface AlerterContextData {
   onShow: (options: AlertProps) => void;
 }
 
-const AlerterContext = createContext({} as any);
+const AlerterContext = createContext<AlerterContextData>({} as AlerterContextData);
 
 interface ProviderProps {
   children: ReactNode;
